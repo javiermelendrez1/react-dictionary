@@ -8,7 +8,8 @@ function App() {
   const[meanings, setMeanings] = useState([]); //meanings is a state
   //creating another state for the word
   const[word, setWord] = useState('');
-
+  //create a state for category
+  const[category, setCategory] = useState('en');
   //create async func to get data using axios
   const dictionaryApi = async () => {
     try{
@@ -26,10 +27,10 @@ function App() {
   return (
     <div className="App">
       <Container maxWidth='md' style={ {display: "flex", flexDirection: "column", height: "100vh"}}>
-      <Header/>
+      <Header category={category} setCategory={setCategory} word={word} setWord={setWord}/>
       </Container>
     </div>
   );
 }
-
+//above pass in cateogry and set category as a prop to header
 export default App;
