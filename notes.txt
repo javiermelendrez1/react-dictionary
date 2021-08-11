@@ -2,3 +2,9 @@ material ui
     react component api
     you use prebuilt components
 bootstrap is another mainstream library you can use
+
+useEffect 
+    is called whenever component is first time rendered
+    if you put a dependency in the brackets it will be called everytime one of 
+    those variables are changed 
+    
