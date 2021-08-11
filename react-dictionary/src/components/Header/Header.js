@@ -5,6 +5,10 @@ import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { InputLabel, MenuItem, Select } from '@material-ui/core';
 import categories from '../../data/category';
 const Header = (props) => {
+    const handleChange = (language) => {
+        props.setCategory(language);
+        props.setWord('');
+    }
     const darkTheme = createTheme({
         palette: {
             primary: {
@@ -24,13 +28,12 @@ const Header = (props) => {
                     value={props.word}
                     onChange={(e) => props.setWord(e.target.value)}
                     />
-                    <InputLabel id="demo-simple-select-label">Language</InputLabel>
                     <Select
                         className="select"
-                        labelId="demo-simple-select-label"
+                        label="Language"
                         id="demo-simple-select"
                         value={props.category}
-                        onChange={(e) => props.setCategory(e.target.value)}
+                        onChange={(e) => handleChange(e.target.value)}
                     >
                         {
                             categories.map((option) => (
